@@ -25,7 +25,7 @@ def update_stock():
 def save_data(ticker_list, open_list, close_list):
     with open("ticker.csv", "a", newline="") as csvfile:
         spamwriter = csv.writer(csvfile)
-        for t, o, c in zip(open_list, close_list):
+        for t, o, c in zip(ticker_list, open_list, close_list):
             spamwriter.writerow([t, str(o), str(c)])
             
 
