@@ -35,43 +35,7 @@ def show_data():
             print(collumn)
             for row in f:
                 print(row)
-    
-    
-def show_chart():
-    fig = go.Figure()
-    # Candlestick chart
-    fig.add_trace(go.Candlestick(x=data.index,
-                    open=data['Open'],
-                    high=data['High'],
-                    low=data['Low'],
-                    close=data['Close'], name='market data'))
-    
-    # Add Titles
-    fig.update_layout(
-        title="Tesla live share price evolution",
-        yaxis_title="Stock Price (USD per shares)",
-    )
-    
-    #x-axes
-    fig.update_xaxes(
-        rangeslider_visible=True,
-        rangeselector=dict(
-            buttons=list([
-                dict(count=15, label="15m", step="minute", stepmode="backward"),
-                dict(count=45, label="45m", step="minute", stepmode="backward"),
-                dict(count=1, label="HTD", step="hour", stepmode="todate"),
-                dict(count=2, label="2h", step="hour", stepmode="backward"),
-                dict(step="all")
-            ])
-        )
-        )
-    
-    #Show
-    fig.show()
 
-#~ while True:
-    #~ update_stock()
-    #~ show_data()
 with open("ticker.csv", "w", newline="") as csvfile:
     csvfile.truncate(0)
 
